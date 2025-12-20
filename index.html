@@ -352,6 +352,9 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 
   <input type="hidden" name="access_key" value="f8de9118-47b8-4a16-8a69-08d8a58f4950">
   <input type="hidden" name="subject" id="emailSubject" value="New Enquiry - MDA Royal Technologies">
+  <input type="hidden" name="replyto" value="">
+  <input type="hidden" name="from_name" value="MDA Royal Technologies">
+
 
   <div class="field">
     <input type="text" name="name" required />
@@ -379,6 +382,15 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
     <label>Your Message</label>
   </div>
 
+  <input type="hidden" name="autoresponse" 
+value="Thank you for contacting MDA Royal Technologies.
+
+We have received your enquiry and our team will contact you shortly.
+
+– MDA Royal Technologies
+India & Dubai IT Services">
+
+
   <button type="submit" class="magnetic-btn form-btn">
     Send Enquiry
   </button>
@@ -396,50 +408,6 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 <a class="whatsapp" href="https://wa.me/918862077609" target="_blank">💬</a>
 <script src="script.js"></script>
 <script src="script_dots.js"></script>
-<script>
-/* MAGNETIC BUTTON */
-document.querySelectorAll(".magnetic-btn").forEach(btn=>{
-  btn.addEventListener("mousemove",e=>{
-    const r=btn.getBoundingClientRect();
-    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.25}px,${(e.clientY-r.top-r.height/2)*0.25}px)`
-  });
-  btn.addEventListener("mouseleave",()=>btn.style.transform="translate(0,0)");
-});
-
-/* BLOCK RIGHT CLICK + INSPECT */
-document.addEventListener("contextmenu",e=>e.preventDefault());
-document.addEventListener("keydown",e=>{
-  if(e.key==="F12"||e.ctrlKey&&e.shiftKey&&["I","J","C"].includes(e.key)||e.ctrlKey&&e.key==="u"){
-    e.preventDefault();
-  }
-});
-</script>
-
-<script>
-/* PARTICLES – HERO ONLY */
-const c=document.getElementById("particleCanvas"),x=c.getContext("2d");
-let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}r();addEventListener("resize",r);
-const m={x:null,y:null},p=[];
-addEventListener("mousemove",e=>{m.x=e.clientX;m.y=e.clientY});
-addEventListener("mouseleave",()=>m.x=null);
-
-const count=innerWidth<768?120:260;
-for(let i=0;i<count;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5),dy:(Math.random()-.5)});
-function a(){
-  x.clearRect(0,0,w,h);
-  p.forEach(o=>{
-    o.x+=o.dx;o.y+=o.dy;
-    if(o.x<0||o.x>w)o.dx*=-1;
-    if(o.y<0||o.y>h)o.dy*=-1;
-    if(m.x){const d=Math.hypot(m.x-o.x,m.y-o.y);if(d<180){o.x-=(m.x-o.x)/18;o.y-=(m.y-o.y)/18}}
-    x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fillStyle="rgba(90,130,180,.75)";x.fill();
-  });
-  requestAnimationFrame(a);
-}
-a();
-</script>
 
 </body>
 </html>
-
-
