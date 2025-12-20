@@ -117,88 +117,66 @@ setInterval(() => {
 
 }, 500);
 
-/* ===== LEVEL 3 ULTRA PROTECTION ===== */
+/* ===== LEVEL 3 (FIXED & STABLE) ===== */
 
-/* Block right click completely */
+let devtoolsTriggered = false;
+
+/* Disable right click */
 document.addEventListener("contextmenu", e => e.preventDefault());
 
-/* Block key shortcuts */
-document.addEventListener("keydown", function(e) {
-
-  // F12
-  if (e.keyCode === 123) {
+/* Disable inspect shortcuts */
+document.addEventListener("keydown", function(e){
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key)) ||
+    (e.ctrlKey && ["U","S","P"].includes(e.key))
+  ){
     e.preventDefault();
-    location.reload();
-  }
-
-  // Ctrl+Shift+I / J / C
-  if (e.ctrlKey && e.shiftKey && [73,74,67].includes(e.keyCode)) {
-    e.preventDefault();
-    location.reload();
-  }
-
-  // Ctrl+U / Ctrl+S / Ctrl+P
-  if (e.ctrlKey && [85,83,80].includes(e.keyCode)) {
-    e.preventDefault();
-    location.reload();
+    triggerProtection();
   }
 });
 
-/* Infinite debugger trap */
-(function debugTrap(){
-  try {
-    (function(){
-      debugger;
-      debugTrap();
-    })();
-  } catch(e){}
-})();
+/* Delayed DevTools detection (SAFE) */
+setTimeout(() => {
+  setInterval(() => {
+    const widthDiff  = window.outerWidth - window.innerWidth;
+    const heightDiff = window.outerHeight - window.innerHeight;
 
-/* Detect devtools via function toString */
-let devtoolsDetected = false;
-setInterval(() => {
-  const check = /./;
-  check.toString = function() {
-    devtoolsDetected = true;
-  };
-  console.log(check);
-  if (devtoolsDetected) {
-    document.body.innerHTML = `
-      <div style="
-        background:#000;
-        color:#fff;
-        height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        font-size:24px;
-      ">
-        ⚠️ Access Blocked<br><br>
-        Developer Tools Detected
-      </div>`;
-  }
-}, 1000);
+    if ((widthDiff > 160 || heightDiff > 160) && !devtoolsTriggered) {
+      triggerProtection();
+    }
+  }, 800);
+}, 3000); // wait 3 sec after page load
 
-/* Detect devtools resize (dock / undock) */
-setInterval(() => {
-  const widthDiff = window.outerWidth - window.innerWidth;
-  const heightDiff = window.outerHeight - window.innerHeight;
+/* Protection action */
+function triggerProtection(){
+  if (devtoolsTriggered) return;
+  devtoolsTriggered = true;
 
-  if (widthDiff > 160 || heightDiff > 160) {
-    location.reload();
-  }
-}, 500);
+  document.body.innerHTML = `
+    <div style="
+      background:#000;
+      color:#fff;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:24px;
+      font-family:sans-serif;
+    ">
+      ⚠️ Access Restricted<br><br>
+      Developer Tools Detected
+    </div>
+  `;
 
-/* Disable text selection + copy */
-["copy","cut","paste","selectstart","dragstart"].forEach(evt => {
+  setTimeout(() => {
+    location.href = "/";
+  }, 2000);
+}
+
+/* Disable copy/select */
+["copy","cut","selectstart","dragstart"].forEach(evt => {
   document.addEventListener(evt, e => e.preventDefault());
 });
 
-/* Protect source tampering */
-let htmlSnapshot = document.documentElement.innerHTML;
-setInterval(() => {
-  if (document.documentElement.innerHTML !== htmlSnapshot) {
-    location.reload();
-  }
-}, 2000);
