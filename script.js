@@ -114,4 +114,91 @@ setInterval(() => {
     if (warnBox) warnBox.remove();
     warned = false;
   }
+
 }, 500);
+
+/* ===== LEVEL 3 ULTRA PROTECTION ===== */
+
+/* Block right click completely */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* Block key shortcuts */
+document.addEventListener("keydown", function(e) {
+
+  // F12
+  if (e.keyCode === 123) {
+    e.preventDefault();
+    location.reload();
+  }
+
+  // Ctrl+Shift+I / J / C
+  if (e.ctrlKey && e.shiftKey && [73,74,67].includes(e.keyCode)) {
+    e.preventDefault();
+    location.reload();
+  }
+
+  // Ctrl+U / Ctrl+S / Ctrl+P
+  if (e.ctrlKey && [85,83,80].includes(e.keyCode)) {
+    e.preventDefault();
+    location.reload();
+  }
+});
+
+/* Infinite debugger trap */
+(function debugTrap(){
+  try {
+    (function(){
+      debugger;
+      debugTrap();
+    })();
+  } catch(e){}
+})();
+
+/* Detect devtools via function toString */
+let devtoolsDetected = false;
+setInterval(() => {
+  const check = /./;
+  check.toString = function() {
+    devtoolsDetected = true;
+  };
+  console.log(check);
+  if (devtoolsDetected) {
+    document.body.innerHTML = `
+      <div style="
+        background:#000;
+        color:#fff;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        font-size:24px;
+      ">
+        ⚠️ Access Blocked<br><br>
+        Developer Tools Detected
+      </div>`;
+  }
+}, 1000);
+
+/* Detect devtools resize (dock / undock) */
+setInterval(() => {
+  const widthDiff = window.outerWidth - window.innerWidth;
+  const heightDiff = window.outerHeight - window.innerHeight;
+
+  if (widthDiff > 160 || heightDiff > 160) {
+    location.reload();
+  }
+}, 500);
+
+/* Disable text selection + copy */
+["copy","cut","paste","selectstart","dragstart"].forEach(evt => {
+  document.addEventListener(evt, e => e.preventDefault());
+});
+
+/* Protect source tampering */
+let htmlSnapshot = document.documentElement.innerHTML;
+setInterval(() => {
+  if (document.documentElement.innerHTML !== htmlSnapshot) {
+    location.reload();
+  }
+}, 2000);
