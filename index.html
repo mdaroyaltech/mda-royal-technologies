@@ -408,6 +408,31 @@ India & Dubai IT Services">
 <a class="whatsapp" href="https://wa.me/918862077609" target="_blank">💬</a>
 <script src="script.js"></script>
 <script src="script_dots.js"></script>
+  
+<script>
+/* PARTICLES – HERO ONLY */
+const c=document.getElementById("particleCanvas"),x=c.getContext("2d");
+let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}r();addEventListener("resize",r);
+const m={x:null,y:null},p=[];
+addEventListener("mousemove",e=>{m.x=e.clientX;m.y=e.clientY});
+addEventListener("mouseleave",()=>m.x=null);
+
+const count=innerWidth<768?120:260;
+for(let i=0;i<count;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5),dy:(Math.random()-.5)});
+function a(){
+  x.clearRect(0,0,w,h);
+  p.forEach(o=>{
+    o.x+=o.dx;o.y+=o.dy;
+    if(o.x<0||o.x>w)o.dx*=-1;
+    if(o.y<0||o.y>h)o.dy*=-1;
+    if(m.x){const d=Math.hypot(m.x-o.x,m.y-o.y);if(d<180){o.x-=(m.x-o.x)/18;o.y-=(m.y-o.y)/18}}
+    x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fillStyle="rgba(90,130,180,.75)";x.fill();
+  });
+  requestAnimationFrame(a);
+}
+a();
+</script>
 
 </body>
 </html>
+
