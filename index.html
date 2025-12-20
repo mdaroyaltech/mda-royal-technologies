@@ -118,52 +118,6 @@ font-weight:500;">
 
 <a class="whatsapp" href="https://wa.me/918862077609" target="_blank">💬</a>
 
-<script>
-  const form = document.getElementById("contactForm");
-  const popup = document.getElementById("successPopup");
-  const serviceSelect = document.getElementById("service");
-  const subjectField = document.getElementById("emailSubject");
-
-  serviceSelect.addEventListener("change", function () {
-    if (this.value !== "") {
-      subjectField.value = "Website Enquiry – " + this.value;
-    }
-  });
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    popup.style.display = "block";
-    popup.innerText = "Sending your enquiry...";
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      if (response.ok) {
-        const name = formData.get("name");
-        popup.innerHTML = `
-          <strong>Dear ${name},</strong><br>
-          Your enquiry has been sent successfully.<br>
-          Our team will contact you shortly.
-        `;
-        setTimeout(() => {
-          popup.style.display = "none";
-        }, 5000);
-        form.reset();
-      } else {
-        popup.innerText = "Something went wrong. Please try again.";
-      }
-    } catch (err) {
-      popup.innerText = "Network error. Please try again later.";
-    }
-  });
-</script>
-
-
-
+<script src="script.js"></script>
 </body>
 </html>
