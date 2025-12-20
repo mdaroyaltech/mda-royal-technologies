@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdaroyaltech.github.io/mda-royal-technologies/sitemap.xml
