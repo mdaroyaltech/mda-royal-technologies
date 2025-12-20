@@ -11,13 +11,14 @@ serviceSelect.addEventListener("change", function () {
 });
 
 form.addEventListener("submit", async function (e) {
-  e.preventDefault();
+  e.preventDefault(); // ✅ FIRST
 
   if (!subjectField.value) {
     subjectField.value = "Website Enquiry – General";
   }
 
   const formData = new FormData(form);
+
   popup.style.display = "block";
   popup.innerText = "Sending your enquiry...";
 
@@ -43,51 +44,66 @@ form.addEventListener("submit", async function (e) {
       submitBtn.disabled = false;
       submitBtn.innerText = "Send Enquiry";
 
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 5000);
+      /* 📲 WhatsApp Alert (AFTER SUCCESS) */
+      const nameWA = formData.get("name");
+      const serviceWA = formData.get("service");
+      const messageWA = formData.get("message");
 
-      form.reset();
-    } else {
-      popup.innerText = "Something went wrong. Please try again.";
-      submitBtn.disabled = false;
-      submitBtn.innerText = "Send Enquiry";
-    }
-  } catch (err) {
-    popup.innerText = "Network error. Please try again later.";
-    submitBtn.disabled = false;
-    submitBtn.innerText = "Send Enquiry";
-  }
-});
+      const whatsappText = `New Enquiry Received 🚀
 
-/* ===== FINAL PROTECTION (STABLE) ===== */
+    Name: ${nameWA}
+    Service: ${serviceWA}
+    Message: ${messageWA}
 
-/* Disable right click */
-document.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
-  return false;
-});
+    – MDA Royal Technologies`;
 
-/* Disable inspect keyboard shortcuts */
-document.addEventListener("keydown", function(e) {
+          window.open(
+            `https://wa.me/918870379373?text=${encodeURIComponent(whatsappText)}`,
+            "_blank"
+          );
 
-  // F12
-  if (e.key === "F12") {
-    e.preventDefault();
-    return false;
-  }
+          setTimeout(() => {
+            popup.style.display = "none";
+          }, 5000);
 
-  // Ctrl + Shift + I / J / C
-  if (e.ctrlKey && e.shiftKey && 
-     (e.key === "I" || e.key === "J" || e.key === "C")) {
-    e.preventDefault();
-    return false;
-  }
+          form.reset();
+        } else {
+          popup.innerText = "Something went wrong. Please try again.";
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Enquiry";
+        }
+      } catch (err) {
+        popup.innerText = "Network error. Please try again later.";
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Enquiry";
+      }
+    });
 
-  // Ctrl + U (View Source)
-  if (e.ctrlKey && e.key === "u") {
-    e.preventDefault();
-    return false;
-  }
+    /* ===== FINAL PROTECTION (STABLE) ===== */
 
-});
+    /* Disable right click */
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    /* Disable inspect keyboard shortcuts */
+    document.addEventListener("keydown", function(e) {
+
+      if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+      }
+
+      if (e.ctrlKey && e.shiftKey && 
+        (e.key === "I" || e.key === "J" || e.key === "C")) {
+        e.preventDefault();
+        return false;
+      }
+
+      if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+        return false;
+      }
+
+    });
