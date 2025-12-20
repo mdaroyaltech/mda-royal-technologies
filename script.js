@@ -171,7 +171,7 @@ function triggerProtection(){
   `;
 
   setTimeout(() => {
-    location.href = "/";
+    location.href = "https://mdaroyaltech.github.io/mda-royal-technologies/";
   }, 2000);
 }
 
@@ -179,4 +179,5 @@ function triggerProtection(){
 ["copy","cut","selectstart","dragstart"].forEach(evt => {
   document.addEventListener(evt, e => e.preventDefault());
 });
+
 
