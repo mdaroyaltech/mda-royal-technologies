@@ -1,33 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MDA Royal Technologies | IT Services in India & Dubai</title>
-  <!-- BASIC SEO -->
-<meta name="title" content="MDA Royal Technologies | IT Services in India & Dubai">
-<meta name="description" content="MDA Royal Technologies provides professional IT services including website development, Google Maps SEO, and WhatsApp automation for businesses in India and Dubai.">
-<meta name="keywords" content="IT services India, IT services Dubai, website development company, Google Maps SEO, WhatsApp automation, digital marketing services">
-<meta name="author" content="MDA Royal Technologies">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>MDA Royal Technologies | IT Services in India & Dubai</title>
+
+<!-- SEO -->
+<meta name="description" content="Professional IT services including website development, Google Maps SEO and WhatsApp automation for India & Dubai businesses.">
+<meta name="keywords" content="IT services India, IT services Dubai, Website development, SEO, WhatsApp automation">
 <meta name="robots" content="index, follow">
 
-<!-- OPEN GRAPH (FOR GOOGLE + WHATSAPP + FACEBOOK) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="MDA Royal Technologies | Professional IT Services">
-<meta property="og:description" content="Affordable and professional IT solutions for businesses in India and Dubai.">
+<meta property="og:title" content="MDA Royal Technologies">
+<meta property="og:description" content="Professional IT Services for India & Dubai Businesses">
 <meta property="og:url" content="https://mdaroyaltech.github.io/mda-royal-technologies/">
-<link rel="sitemap" type="application/xml" href="https://mdaroyaltech.github.io/mda-royal-technologies/sitemap.xml">
-<meta property="og:site_name" content="MDA Royal Technologies">
 
-<!-- TWITTER (OPTIONAL BUT GOOD) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MDA Royal Technologies | IT Services">
-<meta name="twitter:description" content="Website development, SEO and automation services for businesses.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --primary:#0a1d37;
+  --accent:#00c2ff;
+  --bg:#ffffff;
+  --text:#222;
+  --card:#ffffff;
+}
 
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+  position:sticky;top:0;
+  background:var(--primary);
+  padding:15px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+}
+.logo{color:#fff;font-weight:700;font-size:22px}
+.nav-links{list-style:none;display:flex;gap:20px}
+.nav-links a{color:#fff;text-decoration:none}
+
+/* HERO */
+#hero{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+#particleCanvas{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+#hero-content{
+  position:relative;
+  z-index:2;
+  padding:20px;
+}
+.hero-title{
+  font-size:44px;
+  font-weight:700;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1s ease forwards;
+}
+.hero-subtitle{
+  font-size:18px;
+  margin-top:10px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1s ease forwards .3s;
+}
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* MAGNETIC BUTTON */
+.magnetic-btn{
+  margin-top:25px;
+  padding:14px 34px;
+  background:var(--accent);
+  border:none;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+
+/* SECTIONS */
+section{padding:70px 10%}
+.section-title{text-align:center;margin-bottom:40px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.about{max-width:800px;margin:auto;text-align:center}
+
+/* FOOTER */
+footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;right:20px;bottom:20px;
+  background:#25d366;color:#fff;
+  padding:14px;border-radius:50%;
+  text-decoration:none;font-size:22px;
+}
+/* SERVICES UPGRADE */
+.section-sub{
+  text-align:center;
+  color:#666;
+  margin-top:8px;
+  font-size:15px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:50px;
+  overflow:visible; /* 🔥 CUT ISSUE FIX */
+}
+
+.service-card{
+  position:relative;
+  background:rgba(255,255,255,0.9);
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  transition:transform .4s ease, box-shadow .4s ease;
+  cursor:pointer;
+  overflow:visible; /* 🔥 POPUP SAFE */
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.12);
+}
+
+.service-card h3{
+  color:#0a1d37;
+  margin-bottom:8px;
+}
+
+.service-card .short{
+  color:#555;
+  font-size:14px;
+}
+
+/* POPUP TOOLTIP */
+.service-popup{
+  position:absolute;
+  left:50%;
+  bottom:-20px;
+  transform:translateX(-50%) translateY(10px);
+  background:#0a1d37;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:14px;
+  width:260px;
+  font-size:13px;
+  line-height:1.5;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s ease;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  z-index:999; /* 🔥 CUT ISSUE FIX */
+}
+
+.service-card:hover .service-popup{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* POPUP ARROW */
+.service-popup::after{
+  content:"";
+  position:absolute;
+  top:-8px;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:0 8px 8px 8px;
+  border-style:solid;
+  border-color:transparent transparent #0a1d37 transparent;
+}
+/* CONTACT FORM – PREMIUM */
+.contact-form{
+  max-width:520px;
+  margin:40px auto 0;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.12);
+}
+
+.field{
+  position:relative;
+  margin-bottom:26px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  padding:14px 14px;
+  font-size:14px;
+  border-radius:12px;
+  border:1px solid #ccc;
+  background:transparent;
+  outline:none;
+  transition:.3s;
+}
+
+.field label{
+  position:absolute;
+  top:50%;
+  left:14px;
+  transform:translateY(-50%);
+  font-size:13px;
+  color:#777;
+  pointer-events:none;
+  background:#fff;
+  padding:0 6px;
+  transition:.3s;
+}
+
+/* FLOATING LABEL EFFECT */
+.field input:focus + label,
+.field textarea:focus + label,
+.field select:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:not(:placeholder-shown) + label,
+.field select:not([value=""]) + label{
+  top:-8px;
+  font-size:12px;
+  color:#0a1d37;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:#0a1d37;
+}
+
+/* BUTTON */
+.form-btn{
+  width:100%;
+  margin-top:10px;
+  font-size:15px;
+}
+
+/* SUCCESS POPUP */
+.form-popup{
+  margin-top:20px;
+  text-align:center;
+  font-size:14px;
+  color:#0a1d37;
+}
+
+
+</style>
 </head>
+
 <body>
 
 <nav class="navbar">
@@ -36,88 +287,157 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <!-- <li><button id="themeToggle">🌙</button></li> -->
   </ul>
 </nav>
 
-<header>
-  <h1>MDA Royal Technologies</h1>
-  <p>Professional IT Services for India & Dubai Businesses</p>
-  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Free Demo</button>
+<header id="hero">
+  <canvas id="particleCanvas"></canvas>
+  <div id="hero-content">
+    <h1 class="hero-title">MDA Royal Technologies</h1>
+    <p class="hero-subtitle">Professional IT Services for India & Dubai Businesses</p>
+    <button class="magnetic-btn"
+      onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Get Free Demo
+    </button>
+  </div>
 </header>
 
 <section id="services">
-  <div class="section-title"><h2>Our Services</h2></div>
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p class="section-sub">Solutions designed to grow your business</p>
+  </div>
+
   <div class="services">
-    <div class="card"><h3>Business Websites</h3><p>Modern, mobile-friendly websites.</p></div>
-    <div class="card"><h3>Google Maps & SEO</h3><p>Local ranking & customer leads.</p></div>
-    <div class="card"><h3>WhatsApp Automation</h3><p>Automated follow-ups & leads.</p></div>
+    <div class="service-card">
+      <h3>Business Websites</h3>
+      <p class="short">Modern & responsive websites</p>
+      <div class="service-popup">
+        We design fast, mobile-friendly and SEO-ready websites
+        that convert visitors into customers.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>Google Maps & SEO</h3>
+      <p class="short">Rank higher locally</p>
+      <div class="service-popup">
+        Improve Google Maps visibility, local SEO ranking and
+        generate high-quality customer leads.
+      </div>
+    </div>
+
+    <div class="service-card">
+      <h3>WhatsApp Automation</h3>
+      <p class="short">Automated customer follow-ups</p>
+      <div class="service-popup">
+        Automate enquiries, follow-ups and notifications using
+        smart WhatsApp automation tools.
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="about">
   <div class="about">
     <h2>Why Choose Us?</h2>
-    <p>We help small & medium businesses grow online with affordable IT solutions. Serving India & Dubai clients.</p>
+    <p>Affordable IT solutions for growing businesses in India & Dubai.</p>
   </div>
 </section>
 
-<section id="contact" style="padding:70px 10%">
+<section id="contact">
   <div class="section-title"><h2>Contact Us</h2></div>
-  <!-- <form action="https://api.web3forms.com/submit" method="POST" style="max-width:600px;margin:auto;background:var(--card);padding:30px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.08)"> -->
-    <form id="contactForm" style="max-width:600px;margin:auto;background:var(--card);padding:30px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.08)">
 
-  <!-- REQUIRED: WEB3FORMS ACCESS KEY -->
+<form id="contactForm" class="contact-form">
+
   <input type="hidden" name="access_key" value="f8de9118-47b8-4a16-8a69-08d8a58f4950">
+  <input type="hidden" name="subject" id="emailSubject" value="New Enquiry - MDA Royal Technologies">
 
-  <!-- OPTIONAL SETTINGS -->
-  <input type="hidden" name="subject" value="New Enquiry - MDA Royal Technologies" id="emailSubject">
-  <input type="hidden" name="from_name" value="MDA Royal Technologies – Enquiries">
-  <!-- <input type="hidden" name="redirect" value="https://thankyou-page-url.com"> -->
+  <div class="field">
+    <input type="text" name="name" required />
+    <label>Your Name</label>
+  </div>
 
-  <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:12px;margin-bottom:15px;border-radius:8px;border:1px solid #ccc">
+  <div class="field">
+    <input type="email" name="email" required />
+    <label>Your Email</label>
+  </div>
 
-  <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:12px;margin-bottom:15px;border-radius:8px;border:1px solid #ccc">
+  <div class="field">
+    <select id="service" name="service" required>
+      <option value="" disabled selected></option>
+      <option>Business Website</option>
+      <option>Google Maps & SEO</option>
+      <option>WhatsApp Automation</option>
+      <option>Custom IT Solution</option>
+    </select>
+    <label>Select Service</label>
+  </div>
 
-  <select name="service" id="service"
-    required
-    style="width:100%;padding:12px;margin-bottom:15px;border-radius:8px;border:1px solid #ccc">
+  <div class="field">
+    <textarea name="message" rows="4" required></textarea>
+    <label>Your Message</label>
+  </div>
 
-  <option value="">Select a Service</option>
-  <option value="Business Website Development">Business Website Development</option>
-  <option value="Google Maps & SEO">Google Maps & SEO</option>
-  <option value="WhatsApp Automation">WhatsApp Automation</option>
-  <option value="Custom IT Solution">Custom IT Solution</option>
-
-</select>
-
-  <textarea name="message" placeholder="Your Message" required style="width:100%;padding:12px;height:120px;margin-bottom:15px;border-radius:8px;border:1px solid #ccc"></textarea>
-
-  <button type="submit" style="background:var(--accent);border:none;padding:12px 30px;border-radius:25px;font-weight:600;cursor:pointer">Send Message</button>
-
+  <button type="submit" class="magnetic-btn form-btn">
+    Send Enquiry
+  </button>
 </form>
-<div id="successPopup"
-style="display:none;
-margin-top:20px;
-padding:15px;
-background:#e6fffa;
-border-left:5px solid #00c2ff;
-border-radius:8px;
-font-weight:500;">
-</div>
 
-
+<div id="successPopup" class="form-popup"></div>
 </section>
 
-<footer style="background:var(--primary);color:#fff;text-align:center;padding:40px 20px">
-  <h3>Contact Us</h3>
+<footer>
   <p>Email: mdaroyaltech@gmail.com</p>
   <p>WhatsApp: +91-8862077609</p>
   <p>© 2025 MDA Royal Technologies</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/918862077609" target="_blank">💬</a>
-
 <script src="script.js"></script>
+<script src="script_dots.js"></script>
+<script>
+/* MAGNETIC BUTTON */
+document.querySelectorAll(".magnetic-btn").forEach(btn=>{
+  btn.addEventListener("mousemove",e=>{
+    const r=btn.getBoundingClientRect();
+    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.25}px,${(e.clientY-r.top-r.height/2)*0.25}px)`
+  });
+  btn.addEventListener("mouseleave",()=>btn.style.transform="translate(0,0)");
+});
+
+/* BLOCK RIGHT CLICK + INSPECT */
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("keydown",e=>{
+  if(e.key==="F12"||e.ctrlKey&&e.shiftKey&&["I","J","C"].includes(e.key)||e.ctrlKey&&e.key==="u"){
+    e.preventDefault();
+  }
+});
+</script>
+
+<script>
+/* PARTICLES – HERO ONLY */
+const c=document.getElementById("particleCanvas"),x=c.getContext("2d");
+let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}r();addEventListener("resize",r);
+const m={x:null,y:null},p=[];
+addEventListener("mousemove",e=>{m.x=e.clientX;m.y=e.clientY});
+addEventListener("mouseleave",()=>m.x=null);
+
+const count=innerWidth<768?120:260;
+for(let i=0;i<count;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5),dy:(Math.random()-.5)});
+function a(){
+  x.clearRect(0,0,w,h);
+  p.forEach(o=>{
+    o.x+=o.dx;o.y+=o.dy;
+    if(o.x<0||o.x>w)o.dx*=-1;
+    if(o.y<0||o.y>h)o.dy*=-1;
+    if(m.x){const d=Math.hypot(m.x-o.x,m.y-o.y);if(d<180){o.x-=(m.x-o.x)/18;o.y-=(m.y-o.y)/18}}
+    x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fillStyle="rgba(90,130,180,.75)";x.fill();
+  });
+  requestAnimationFrame(a);
+}
+a();
+</script>
+
 </body>
 </html>
