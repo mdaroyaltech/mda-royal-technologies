@@ -33,6 +33,10 @@ form.addEventListener("submit", async function (e) {
     });
 
     if (response.ok) {
+      gtag('event', 'generate_lead', {
+      event_category: 'Lead',
+      event_label: 'Contact Form',
+    });
       const name = formData.get("name");
 
       popup.innerHTML = `
@@ -107,4 +111,5 @@ form.addEventListener("submit", async function (e) {
       }
 
     });
+
 
