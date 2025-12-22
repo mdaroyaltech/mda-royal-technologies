@@ -112,4 +112,12 @@ form.addEventListener("submit", async function (e) {
 
     });
 
-
+    /* WhatsApp Click Tracking */
+    function trackWhatsApp() {
+      if (typeof gtag === "function") {
+        gtag('event', 'whatsapp_click', {
+          event_category: 'Engagement',
+          event_label: 'WhatsApp Contact'
+        });
+      }
+    }
