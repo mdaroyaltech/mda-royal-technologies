@@ -8,276 +8,25 @@
 
 <!-- SEO -->
 <meta name="description" content="Professional IT services including website development, Google Maps SEO and WhatsApp automation for India & Dubai businesses.">
-<meta name="keywords" content="IT services India, IT services Dubai, Website development, SEO, WhatsApp automation">
+<meta name="keywords" content="
+  IT services Dubai,
+  Web development Dubai,
+  Google Maps SEO Dubai,
+  WhatsApp automation Dubai,
+  IT company UAE,
+  Website design UAE,
+  India Dubai IT services
+  ">  
 <meta name="robots" content="index, follow">
 
-<meta property="og:title" content="MDA Royal Technologies">
+<meta property="og:title" content="MDA Royal Technologies – IT Services in India & Dubai">
 <meta property="og:description" content="Professional IT Services for India & Dubai Businesses">
 <meta property="og:url" content="https://mdaroyaltech.github.io/mda-royal-technologies/">
+<meta property="og:type" content="website"/>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --primary:#0a1d37;
-  --accent:#00c2ff;
-  --bg:#ffffff;
-  --text:#222;
-  --card:#ffffff;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:Poppins,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
-
-/* NAVBAR */
-.navbar{
-  position:sticky;top:0;
-  background:var(--primary);
-  padding:15px 10%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:100;
-}
-.logo{color:#fff;font-weight:700;font-size:22px}
-.nav-links{list-style:none;display:flex;gap:20px}
-.nav-links a{color:#fff;text-decoration:none}
-
-/* HERO */
-#hero{
-  position:relative;
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-}
-#particleCanvas{
-  position:absolute;
-  inset:0;
-  z-index:0;
-}
-#hero-content{
-  position:relative;
-  z-index:2;
-  padding:20px;
-}
-.hero-title{
-  font-size:44px;
-  font-weight:700;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s ease forwards;
-}
-.hero-subtitle{
-  font-size:18px;
-  margin-top:10px;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s ease forwards .3s;
-}
-@keyframes fadeUp{
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* MAGNETIC BUTTON */
-.magnetic-btn{
-  margin-top:25px;
-  padding:14px 34px;
-  background:var(--accent);
-  border:none;
-  border-radius:30px;
-  font-weight:600;
-  cursor:pointer;
-  transition:transform .2s ease;
-}
-
-/* SECTIONS */
-section{padding:70px 10%}
-.section-title{text-align:center;margin-bottom:40px}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{
-  background:var(--card);
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-.about{max-width:800px;margin:auto;text-align:center}
-
-/* FOOTER */
-footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;right:20px;bottom:20px;
-  background:#25d366;color:#fff;
-  padding:14px;border-radius:50%;
-  text-decoration:none;font-size:22px;
-}
-/* SERVICES UPGRADE */
-.section-sub{
-  text-align:center;
-  color:#666;
-  margin-top:8px;
-  font-size:15px;
-}
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  margin-top:50px;
-  overflow:visible; /* 🔥 CUT ISSUE FIX */
-}
-
-.service-card{
-  position:relative;
-  background:rgba(255,255,255,0.9);
-  border-radius:18px;
-  padding:30px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.08);
-  transition:transform .4s ease, box-shadow .4s ease;
-  cursor:pointer;
-  overflow:visible; /* 🔥 POPUP SAFE */
-}
-
-.service-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 30px 60px rgba(0,0,0,0.12);
-}
-
-.service-card h3{
-  color:#0a1d37;
-  margin-bottom:8px;
-}
-
-.service-card .short{
-  color:#555;
-  font-size:14px;
-}
-
-/* POPUP TOOLTIP */
-.service-popup{
-  position:absolute;
-  left:50%;
-  bottom:-20px;
-  transform:translateX(-50%) translateY(10px);
-  background:#0a1d37;
-  color:#fff;
-  padding:16px 18px;
-  border-radius:14px;
-  width:260px;
-  font-size:13px;
-  line-height:1.5;
-  text-align:center;
-  opacity:0;
-  pointer-events:none;
-  transition:.4s ease;
-  box-shadow:0 20px 40px rgba(0,0,0,0.3);
-  z-index:999; /* 🔥 CUT ISSUE FIX */
-}
-
-.service-card:hover .service-popup{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
-
-/* POPUP ARROW */
-.service-popup::after{
-  content:"";
-  position:absolute;
-  top:-8px;
-  left:50%;
-  transform:translateX(-50%);
-  border-width:0 8px 8px 8px;
-  border-style:solid;
-  border-color:transparent transparent #0a1d37 transparent;
-}
-/* CONTACT FORM – PREMIUM */
-.contact-form{
-  max-width:520px;
-  margin:40px auto 0;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(12px);
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 30px 60px rgba(0,0,0,0.12);
-}
-
-.field{
-  position:relative;
-  margin-bottom:26px;
-}
-
-.field input,
-.field textarea,
-.field select{
-  width:100%;
-  padding:14px 14px;
-  font-size:14px;
-  border-radius:12px;
-  border:1px solid #ccc;
-  background:transparent;
-  outline:none;
-  transition:.3s;
-}
-
-.field label{
-  position:absolute;
-  top:50%;
-  left:14px;
-  transform:translateY(-50%);
-  font-size:13px;
-  color:#777;
-  pointer-events:none;
-  background:#fff;
-  padding:0 6px;
-  transition:.3s;
-}
-
-/* FLOATING LABEL EFFECT */
-.field input:focus + label,
-.field textarea:focus + label,
-.field select:focus + label,
-.field input:not(:placeholder-shown) + label,
-.field textarea:not(:placeholder-shown) + label,
-.field select:not([value=""]) + label{
-  top:-8px;
-  font-size:12px;
-  color:#0a1d37;
-}
-
-.field input:focus,
-.field textarea:focus,
-.field select:focus{
-  border-color:#0a1d37;
-}
-
-/* BUTTON */
-.form-btn{
-  width:100%;
-  margin-top:10px;
-  font-size:15px;
-}
-
-/* SUCCESS POPUP */
-.form-popup{
-  margin-top:20px;
-  text-align:center;
-  font-size:14px;
-  color:#0a1d37;
-}
-
-
-</style>
-  <!-- Google tag (gtag.js) -->
+<link rel="stylesheet" href="style_2.css">
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJRJL7RM8T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -286,6 +35,20 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 
   gtag('config', 'G-VJRJL7RM8T');
 </script>
+  <!-- 🔥 AI / SEO ENTITY CLARITY -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MDA Royal Technologies",
+    "url": "https://mdaroyaltech.github.io/mda-royal-technologies/",
+    "description": "MDA Royal Technologies is an IT services company providing website development, Google Maps SEO, CRM systems, and WhatsApp automation for businesses in India and Dubai.",
+    "areaServed": [
+      { "@type": "Country", "name": "India" },
+      { "@type": "Country", "name": "United Arab Emirates" }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -304,6 +67,12 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
   <div id="hero-content">
     <h1 class="hero-title">MDA Royal Technologies</h1>
     <p class="hero-subtitle">Professional IT Services for India & Dubai Businesses</p>
+    <p class="hero-sub">
+      Serving clients in <strong>India 🇮🇳 & Dubai 🇦🇪</strong><br>
+      Web Development • SEO • WhatsApp Automation
+      <br>Remote IT services trusted by UAE & India businesses
+    </p>
+
     <button class="magnetic-btn"
       onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
       Get Free Demo
@@ -315,6 +84,7 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
   <div class="section-title">
     <h2>Our Services</h2>
     <p class="section-sub">Solutions designed to grow your business</p>
+
   </div>
 
   <div class="services">
@@ -353,6 +123,201 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
     <p>Affordable IT solutions for growing businesses in India & Dubai.</p>
   </div>
 </section>
+
+<section id="dubai">
+  <div class="about">
+    <span class="badge">🇦🇪 Dubai Focused</span>
+
+    <h2>IT Services in Dubai (UAE)</h2>
+
+    <p>
+      We help Dubai & UAE businesses grow with modern websites,
+      Google Maps SEO, and WhatsApp automation.
+    </p>
+
+    <div class="dubai-points">
+      <div>✅ Website Development for UAE</div>
+      <div>✅ Google Maps Ranking (Dubai)</div>
+      <div>✅ WhatsApp Lead Automation</div>
+      <div>✅ Remote IT Support</div>
+    </div>
+
+    <button class="magnetic-btn"
+      onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Get Free Dubai Demo
+    </button>
+  </div>
+</section>
+
+
+<section id="pricing">
+  <div class="section-title">
+    <h2>India Pricing (INR)</h2>
+    <p class="section-sub">Simple plans for Indian businesses</p>
+  </div>
+  
+  <div class="services pricing-cards">
+
+    <div class="service-card">
+      <h3>Starter</h3>
+      <p class="price">Starting from ₹9,999</p>
+      <ul>
+        <li>✔ Business Website</li>
+        <li>✔ Mobile Responsive</li>
+        <li>✔ Basic SEO</li>
+      </ul>
+      <button class="magnetic-btn"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Enquire Now
+      </button>
+    </div>
+
+    <div class="service-card featured">
+      <h3>Growth</h3>
+      <p class="price">Starting from ₹19,999</p>
+      <ul>
+        <li>✔ Website + SEO</li>
+        <li>✔ Google Maps Setup</li>
+        <li>✔ WhatsApp Automation</li>
+      </ul>
+      <button class="magnetic-btn"
+      onclick="selectService('Growth')">
+        Most Popular
+      </button>
+    </div>
+
+    <div class="service-card">
+      <h3>Custom</h3>
+      <p class="price">Custom Pricing</p>
+      <ul>
+        <li>✔ UAE Focused Solutions</li>
+        <li>✔ CRM / Automation</li>
+        <li>✔ Dedicated Support</li>
+      </ul>
+      <button class="magnetic-btn"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Talk to Us
+      </button>
+    </div>
+
+  </div>
+
+  <p class="pricing-note">
+    *Prices are indicative and may vary based on project requirements.
+  </p>
+</section>
+
+
+
+
+<section id="pricing-dubai">
+  <div class="section-title">
+    <h2>Dubai Pricing (AED)</h2>
+    <p class="section-sub">Flexible plans for UAE businesses</p>
+  </div>
+  <div class="services pricing-cards">
+
+    <div class="service-card">
+      <h3>Starter UAE</h3>
+      <p class="price">Starting from AED 499</p>
+      <ul>
+        <li>✔ Business Website</li>
+        <li>✔ Mobile Responsive</li>
+        <li>✔ Basic SEO</li>
+      </ul>
+      <button class="magnetic-btn"
+        onclick="selectService('Starter UAE – AED')">
+        Enquire Now
+      </button>
+    </div>
+
+    <div class="service-card featured">
+      <h3>Growth UAE</h3>
+      <p class="price">Starting from AED 999</p>
+      <ul>
+        <li>✔ Website + SEO</li>
+        <li>✔ Google Maps (UAE)</li>
+        <li>✔ WhatsApp Automation</li>
+      </ul>
+      <button class="magnetic-btn"
+        onclick="selectService('Growth UAE – AED')">
+        Most Popular
+      </button>
+    </div>
+
+    <div class="service-card">
+      <h3>Custom UAE</h3>
+      <p class="price">Custom Pricing</p>
+      <ul>
+        <li>✔ CRM / Automation</li>
+        <li>✔ Lead Funnels</li>
+        <li>✔ Dedicated Support</li>
+      </ul>
+      <button class="magnetic-btn"
+        onclick="selectService('Custom UAE – AED')">
+        Talk to Us
+      </button>
+    </div>
+
+  </div>
+
+  <p class="pricing-note">
+  *Prices are indicative and may vary based on project requirements.
+</p>
+</section>
+
+
+
+<section id="testimonials">
+  <div class="section-title">
+    <h2>What Our Clients Say</h2>
+  </div>
+
+  <div class="services">
+    <div class="service-card">
+      ⭐⭐⭐⭐⭐
+      <p>Excellent IT support and fast website delivery for our Dubai business.</p>
+      <strong>– UAE Client</strong>
+    </div>
+
+    <div class="service-card">
+      ⭐⭐⭐⭐⭐
+      <p>Our Google Maps ranking improved within weeks. Highly recommended.</p>
+      <strong>– India Client</strong>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-title">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+
+  <div class="about">
+    <p><strong>Do you provide IT services in Dubai?</strong><br>
+    Yes, we offer remote IT services for Dubai & UAE businesses.</p>
+
+    <p><strong>How does WhatsApp automation work?</strong><br>
+    It automates enquiries, follow-ups, and customer notifications.</p>
+
+    <p><strong>Do you support Indian businesses?</strong><br>
+    Yes, we serve both India and UAE clients.</p>
+  </div>
+</section>
+
+
+
+<div style="max-width:520px;margin:0 auto 30px;">
+  <iframe
+    src="https://www.google.com/maps?q=Dubai&output=embed"
+    width="100%"
+    height="250"
+    style="border:0;border-radius:16px;"
+    loading="lazy">
+  </iframe>
+</div>
+
+
 
 <section id="contact">
   <div class="section-title"><h2>Contact Us</h2></div>
@@ -403,52 +368,38 @@ India & Dubai IT Services">
   <button type="submit" class="magnetic-btn form-btn">
     Send Enquiry
   </button>
+  <p class="form-trust">
+  🔒 We never share your contact details
+</p>
+  
 </form>
 
 <div id="successPopup" class="form-popup"></div>
 </section>
 
 <footer>
-  <p>Email: mdaroyaltech@gmail.com</p>
-  <p>WhatsApp: +91-8862077609</p>
-  <p>© 2025 MDA Royal Technologies</p>
+  <p>Email: mdaroyaltech@gmail.com</p>    
+  <p>
+📍 India & Dubai<br>
+🌍 Remote services for UAE businesses <br>
+📞 WhatsApp: +91-8862077609
+</p>
+<p>© 2025 MDA Royal Technologies</p>
+<p style="font-size:13px;opacity:.8;">
+  We respect your privacy. Your information is safe and never shared.
+</p>
 </footer>
 
 <a href="https://wa.me/918862077609"
    target="_blank"
    class="whatsapp"
    onclick="trackWhatsApp()">
+   
   💬
 </a>
+
 <script src="script.js"></script>
 <script src="script_dots.js"></script>
-  
-<!-- <script>
-/* PARTICLES – HERO ONLY */
-const c=document.getElementById("particleCanvas"),x=c.getContext("2d");
-let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}r();addEventListener("resize",r);
-const m={x:null,y:null},p=[];
-addEventListener("mousemove",e=>{m.x=e.clientX;m.y=e.clientY});
-addEventListener("mouseleave",()=>m.x=null);
-
-const count=innerWidth<768?120:260;
-for(let i=0;i<count;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,dx:(Math.random()-.5),dy:(Math.random()-.5)});
-function a(){
-  x.clearRect(0,0,w,h);
-  p.forEach(o=>{
-    o.x+=o.dx;o.y+=o.dy;
-    if(o.x<0||o.x>w)o.dx*=-1;
-    if(o.y<0||o.y>h)o.dy*=-1;
-    if(m.x){const d=Math.hypot(m.x-o.x,m.y-o.y);if(d<180){o.x-=(m.x-o.x)/18;o.y-=(m.y-o.y)/18}}
-    x.beginPath();x.arc(o.x,o.y,o.r,0,6.28);x.fillStyle="rgba(90,130,180,.75)";x.fill();
-  });
-  requestAnimationFrame(a);
-}
-a();
-</script> -->
 
 </body>
 </html>
-
-
-
