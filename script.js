@@ -3,6 +3,28 @@ const popup = document.getElementById("successPopup");
 const serviceSelect = document.getElementById("service");
 const subjectField = document.getElementById("emailSubject");
 
+function selectService(serviceName) {
+  const serviceDropdown = document.getElementById("service");
+  serviceDropdown.value = "Custom IT Solution";
+  document.getElementById("emailSubject").value =
+    "Dubai Enquiry – " + serviceName;
+
+  document.getElementById("contact").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+document.getElementById("billingToggle")?.addEventListener("change", function(){
+  document.querySelectorAll(".price").forEach(price=>{
+    if(this.checked){
+      price.innerHTML = price.innerHTML + "<br><small>/ month</small>";
+    }else{
+      price.innerHTML = price.innerHTML.replace("<br><small>/ month</small>","");
+    }
+  });
+});
+
+
 /* Update subject based on service */
 serviceSelect.addEventListener("change", function () {
   if (this.value !== "") {
@@ -34,9 +56,10 @@ form.addEventListener("submit", async function (e) {
 
     if (response.ok) {
       gtag('event', 'generate_lead', {
-      event_category: 'Lead',
-      event_label: 'Contact Form',
-    });
+        event_category: 'Lead',
+        event_label: 'Contact Form',
+      });
+
       const name = formData.get("name");
 
       popup.innerHTML = `
@@ -121,3 +144,5 @@ form.addEventListener("submit", async function (e) {
         });
       }
     }
+
+
