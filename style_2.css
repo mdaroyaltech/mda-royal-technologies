@@ -1,0 +1,576 @@
+:root{
+  --primary:#0a1d37;
+  --accent:#00c2ff;
+  --bg:#ffffff;
+  --text:#222;
+  --card:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+  position:sticky;top:0;
+  background:var(--primary);
+  padding:15px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+}
+.logo{color:#fff;font-weight:700;font-size:22px}
+.nav-links{list-style:none;display:flex;gap:20px}
+.nav-links a{color:#fff;text-decoration:none}
+
+/* HERO */
+#hero{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+#particleCanvas{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+#hero-content{
+  position:relative;
+  z-index:2;
+  padding:20px;
+}
+.hero-title{
+  font-size:44px;
+  font-weight:700;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1s ease forwards;
+}
+.hero-subtitle{
+  font-size:18px;
+  margin-top:10px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1s ease forwards .3s;
+}
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* MAGNETIC BUTTON */
+.magnetic-btn{
+  margin-top:25px;
+  padding:14px 34px;
+  background:var(--accent);
+  border:none;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+
+/* SECTIONS */
+section{padding:70px 10%}
+.section-title{text-align:center;margin-bottom:40px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.about{max-width:800px;margin:auto;text-align:center}
+
+/* FOOTER */
+footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;right:20px;bottom:20px;
+  background:#25d366;color:#fff;
+  padding:14px;border-radius:50%;
+  text-decoration:none;font-size:22px;
+}
+/* SERVICES UPGRADE */
+.section-sub{
+  text-align:center;
+  color:#666;
+  margin-top:8px;
+  font-size:15px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:50px;
+  overflow:visible; /* 🔥 CUT ISSUE FIX */
+}
+
+.service-card{
+  position:relative;
+  background:rgba(255,255,255,0.9);
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  transition:transform .4s ease, box-shadow .4s ease;
+  cursor:pointer;
+  overflow:visible; /* 🔥 POPUP SAFE */
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.12);
+}
+
+.service-card h3{
+  color:#0a1d37;
+  margin-bottom:8px;
+}
+
+.service-card .short{
+  color:#555;
+  font-size:14px;
+}
+
+/* POPUP TOOLTIP */
+.service-popup{
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  margin-bottom:16px;
+  transform:translateX(-50%) translateY(10px);
+  background:#0a1d37;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:14px;
+  width:260px;
+  font-size:13px;
+  line-height:1.5;
+  text-align:center;
+  opacity:0;
+  visibility:visible;
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  z-index:9999;
+}
+
+.service-card:hover .service-popup{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+
+
+/* POPUP ARROW */
+.service-popup::after{
+  content:"";
+  position:absolute;
+  bottom:-8px;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:8px 8px 0 8px;
+  border-style:solid;
+  border-color:#0a1d37 transparent transparent transparent;
+}
+
+
+/* CONTACT FORM – PREMIUM */
+.contact-form{
+  max-width:520px;
+  margin:40px auto 0;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.12);
+}
+
+.field{
+  position:relative;
+  margin-bottom:26px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  padding:14px 14px;
+  font-size:14px;
+  border-radius:12px;
+  border:1px solid #ccc;
+  background:transparent;
+  outline:none;
+  transition:.3s;
+}
+
+.field label{
+  position:absolute;
+  top:50%;
+  left:14px;
+  transform:translateY(-50%);
+  font-size:13px;
+  color:#777;
+  pointer-events:none;
+  background:#fff;
+  padding:0 6px;
+  transition:.3s;
+}
+
+/* FLOATING LABEL EFFECT */
+.field input:focus + label,
+.field textarea:focus + label,
+.field select:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:not(:placeholder-shown) + label,
+.field select:not([value=""]) + label{
+  top:-8px;
+  font-size:12px;
+  color:#0a1d37;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:#0a1d37;
+}
+
+/* BUTTON */
+.form-btn{
+  width:100%;
+  margin-top:10px;
+  font-size:15px;
+}
+
+/* SUCCESS POPUP */
+.form-popup{
+  margin-top:20px;
+  text-align:center;
+  font-size:14px;
+  color:#0a1d37;
+}
+.form-trust {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #6b7280; /* soft gray */
+      text-align: center;
+      user-select: none;
+    }
+
+    /* WHY CHOOSE US + DUBAI SECTION IMPROVEMENT */
+
+#about,
+#dubai {
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+}
+
+#about .about,
+#dubai .about {
+  background: #ffffff;
+  padding: 60px 50px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+#about h2,
+#dubai h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0a1d37;
+  margin-bottom: 15px;
+}
+
+#about p,
+#dubai p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+#about .about::before,
+#dubai .about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 5px;
+  background: linear-gradient(90deg, #00c2ff, #0a1d37);
+  border-radius: 5px;
+}
+
+.dubai-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.dubai-icons div {
+  background: #f1f5f9;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0a1d37;
+}
+
+@media(max-width:768px){
+  #about .about,
+  #dubai .about {
+    padding: 40px 25px;
+  }
+
+  #about h2,
+  #dubai h2 {
+    font-size: 28px;
+  }
+}
+
+/* ===== PREMIUM SERVICES SECTION ===== */
+
+#services {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+#services .services {
+  margin-top: 60px;
+}
+
+#services .service-card {
+  background: linear-gradient(180deg, #ffffff, #f9fbff);
+  border-radius: 22px;
+  padding: 36px 30px;
+  position: relative;
+  overflow: visible;
+}
+
+#services .service-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#services .service-card .short {
+  font-size: 15px;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* ===== DUBAI LANDING PAGE ===== */
+
+#dubai {
+  padding: 100px 10%;
+  background: linear-gradient(135deg, #eef7ff, #ffffff);
+}
+
+#dubai .badge {
+  display: inline-block;
+  background: #e0f2ff;
+  color: #0369a1;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.dubai-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 35px 0;
+}
+
+.dubai-points div {
+  background: #f8fafc;
+  padding: 16px 18px;
+  border-radius: 14px;
+  font-size: 15px;
+  color: #0a1d37;
+}
+
+
+@media (max-width: 768px) {
+
+  section {
+    padding: 60px 6%;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .service-card {
+    padding: 28px 22px;
+  }
+
+  #dubai {
+    padding: 70px 6%;
+  }
+
+  #dubai h2 {
+    font-size: 26px;
+  }
+
+  .dubai-points {
+    grid-template-columns: 1fr;
+  }
+
+  .magnetic-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== PRICING CARDS ===== */
+
+#pricing {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+#pricing .price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a1d37;
+  margin: 15px 0;
+}
+
+#pricing ul {
+  list-style: none;
+  padding: 0;
+}
+
+#pricing ul li {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #475569;
+}
+
+#pricing .featured {
+  border: 2px solid #00c2ff;
+  transform: scale(1.03);
+}
+
+@media(max-width:768px){
+  #pricing .featured {
+    transform: none;
+  }
+}
+
+/* ===== DUBAI AED PRICING ===== */
+
+#pricing-dubai {
+  background: linear-gradient(180deg, #eef7ff, #ffffff);
+}
+
+#pricing-dubai .price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a1d37;
+  margin: 14px 0;
+}
+
+#pricing-dubai .featured {
+  border: 2px solid #00c2ff;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+@media(max-width:768px){
+  #pricing-dubai .service-card {
+    padding: 26px 22px;
+  }
+
+  #pricing-dubai h2 {
+    font-size: 26px;
+  }
+}
+
+#services {
+  padding-bottom: 120px; /* tooltip ke liye space */
+}
+
+@media(max-width:768px){
+  .service-popup{
+    width:220px;
+    font-size:12px;
+  }
+}
+
+.pricing-note{
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 25px;
+  padding-bottom: 10px;
+}
+
+.pricing-cards{
+  position:relative;
+}
+
+.pricing-cards::before,
+.pricing-cards::after{
+  content:"";
+  position:absolute;
+  top:10%;
+  width:1px;
+  height:80%;
+  background:linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+}
+
+.pricing-cards::before{
+  left:33.33%;
+}
+
+.pricing-cards::after{
+  left:66.66%;
+}
+
+/* Mobile pe divider hide */
+@media(max-width:768px){
+  .pricing-cards::before,
+  .pricing-cards::after{
+    display:none;
+  }
+}
+
+/* ===== MOST POPULAR RIBBON ===== */
+.service-card.featured{
+  position:relative;
+}
+
+.service-card.featured::before{
+  content:"Most Popular";
+  position:absolute;
+  top:18px;
+  right:-38px;
+  background:#00c2ff;
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+  padding:6px 40px;
+  transform:rotate(45deg);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+
