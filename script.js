@@ -74,7 +74,7 @@ form.addEventListener("submit", async function (e) {
     – MDA Royal Technologies`;
 
           window.open(
-            `https://wa.me/918870319373?text=${encodeURIComponent(whatsappText)}`,
+            `https://wa.me/918862077609?text=${encodeURIComponent(whatsappText)}`,
             "_blank"
           );
 
@@ -164,3 +164,4 @@ window.addEventListener("load", () => {
   animateRating("ratingValue", 5.0);   // ⭐ Rating
   animateReviews("reviewCount", 25);   // 🔥 Change count here
 });
+
