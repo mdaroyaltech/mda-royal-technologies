@@ -755,3 +755,168 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
     background: rgba(255,255,255,0.12);
   }
 }
+
+/* ===== GOOGLE REVIEW SECTION ===== */
+
+#reviews{
+  padding:90px 10%;
+  background:linear-gradient(180deg,#f8fafc,#ffffff);
+}
+
+.review-summary{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+.google-badge{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  padding:12px 20px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.google-badge img{
+  height:26px;
+}
+
+.rating-score{
+  text-align:center;
+}
+
+.rating-score strong{
+  font-size:38px;
+  color:#0a1d37;
+}
+
+.rating-score .stars{
+  font-size:20px;
+  margin:4px 0;
+}
+
+.rating-score p{
+  font-size:13px;
+  color:#666;
+}
+
+/* Auto Scroll Reviews */
+.review-slider{
+  overflow:hidden;
+  margin-top:50px;
+}
+
+.review-track{
+  display:flex;
+  gap:25px;
+  animation: scrollReviews 25s linear infinite;
+}
+
+.review-track:hover{
+  animation-play-state: paused;
+}
+
+@keyframes scrollReviews{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+.review-card{
+  min-width:280px;
+  background:#ffffff;
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+
+.review-card .stars{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.review-card p{
+  font-size:14px;
+  line-height:1.6;
+  color:#444;
+}
+
+.review-card span{
+  display:block;
+  margin-top:12px;
+  font-size:13px;
+  font-weight:600;
+  color:#0a1d37;
+}
+
+/* CTA */
+.review-cta{
+  text-align:center;
+  margin-top:50px;
+}
+
+.review-btn{
+  padding:14px 38px;
+  font-size:15px;
+}
+
+.map-btn{
+  margin-top:18px;
+  background:#0a1d37;
+  color:#fff;
+}
+
+.review-note{
+  margin-top:14px;
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  #reviews{
+    padding:70px 6%;
+  }
+}
+/* ===== REVIEW CARD HEIGHT FIX (FINAL) ===== */
+
+/* Agar review-cards use ho raha hai */
+.review-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  align-items: stretch; /* 🔥 IMPORTANT */
+}
+
+/* Agar auto-slider use ho raha hai */
+.review-track{
+  display: flex;
+  align-items: stretch; /* 🔥 IMPORTANT */
+}
+
+/* Card ko full height lene do */
+.review-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* content upar rahe */
+  height: 100%; /* 🔥 FIX */
+  min-height: 220px; /* 🔥 SAME HEIGHT FEEL */
+}
+
+.review-trust-strip{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  font-size:14px;
+  color:#475569;
+}
+
+.review-track{
+  animation: scrollReviews 35s linear infinite;
+}
