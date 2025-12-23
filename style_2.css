@@ -29,6 +29,7 @@ body{
 .nav-links{list-style:none;display:flex;gap:20px}
 .nav-links a{color:#fff;text-decoration:none}
 
+
 /* HERO */
 #hero{
   position:relative;
@@ -444,8 +445,9 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 /* ===== PRICING CARDS ===== */
 
 #pricing {
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  background: #ffffff;
 }
+
 
 #pricing .price {
   font-size: 22px;
@@ -479,8 +481,9 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 /* ===== DUBAI AED PRICING ===== */
 
 #pricing-dubai {
-  background: linear-gradient(180deg, #eef7ff, #ffffff);
+  background: #ffffff;
 }
+
 
 #pricing-dubai .price {
   font-size: 22px;
@@ -523,23 +526,11 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
   padding-bottom: 10px;
 }
 
-.pricing-cards::before,
+ .pricing-cards::before,
 .pricing-cards::after{
-  content:"";
-  position:absolute;
-  top:10%;
-  width:1px;
-  height:80%;
-  background:linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+  pointer-events: none;
 }
 
-.pricing-cards::before{
-  left:33.33%;
-}
-
-.pricing-cards::after{
-  left:66.66%;
-}
 
 /* Mobile pe divider hide */
 @media(max-width:768px){
@@ -557,7 +548,7 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 /* ===== FEATURED PRICING CARD (BEST PRACTICE) ===== */
 .pricing-cards .service-card.featured{
   border:2px solid #00c2ff;
-  box-shadow:0 40px 80px rgba(0,194,255,0.25);
+  box-shadow:0 40px 80px rgba(0,0,0,0.15);
   transform: scale(1.03);
   background:#ffffff;
 }
@@ -565,8 +556,6 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 .pricing-cards .service-card.featured:hover{
   transform: scale(1.05) translateY(-6px);
 }
-
-
 
 /* ===== REMOVE BULLET POINTS FROM PRICING LISTS ===== */
 #pricing ul,
@@ -629,7 +618,7 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 
 .pricing-cards .service-card:hover{
   transform: translateY(-12px) scale(1.01);
-  box-shadow: 0 35px 70px rgba(0, 194, 255, 0.18);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.12);
 }
 
 @media(max-width:768px){
@@ -919,4 +908,67 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 
 .review-track{
   animation: scrollReviews 35s linear infinite;
+}
+
+/* ===== FAQ ACCORDION (PREMIUM) ===== */
+
+#faq{
+  background:#ffffff;
+  padding:100px 10%;
+}
+
+.faq-accordion{
+  max-width:800px;
+  margin:60px auto 0;
+}
+
+.faq-item{
+  border-radius:18px;
+  margin-bottom:18px;
+  background:#ffffff;
+  box-shadow:0 18px 40px rgba(0,0,0,0.08);
+  overflow:hidden;
+}
+
+.faq-question{
+  width:100%;
+  background:none;
+  border:none;
+  padding:22px 26px;
+  text-align:left;
+  font-size:16px;
+  font-weight:600;
+  color:#0a1d37;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.faq-question .icon{
+  font-size:22px;
+  transition:transform .3s ease;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+  padding:0 26px;
+}
+
+.faq-answer p{
+  font-size:14px;
+  line-height:1.7;
+  color:#475569;
+  padding-bottom:22px;
+}
+
+/* Active state */
+.faq-item.active .faq-answer{
+  max-height:300px;
+}
+
+.faq-item.active .faq-question .icon{
+  transform:rotate(45deg);
 }
