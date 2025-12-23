@@ -147,3 +147,7 @@
     }
     }
 
+    /* PARTICLE BACKGROUND – LIGHT MODE */
+    #particleCanvas{
+  background: transparent !important;
+}
