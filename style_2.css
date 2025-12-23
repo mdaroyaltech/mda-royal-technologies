@@ -523,10 +523,6 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
   padding-bottom: 10px;
 }
 
-.pricing-cards{
-  position:relative;
-}
-
 .pricing-cards::before,
 .pricing-cards::after{
   content:"";
@@ -553,24 +549,209 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
   }
 }
 
-/* ===== MOST POPULAR RIBBON ===== */
-.service-card.featured{
-  position:relative;
+.service-card.featured::before,
+.service-card.featured::after{
+  content:none;
 }
 
-.service-card.featured::before{
-  content:"Most Popular";
-  position:absolute;
-  top:18px;
-  right:-38px;
+/* ===== FEATURED PRICING CARD (BEST PRACTICE) ===== */
+.pricing-cards .service-card.featured{
+  border:2px solid #00c2ff;
+  box-shadow:0 40px 80px rgba(0,194,255,0.25);
+  transform: scale(1.03);
+  background:#ffffff;
+}
+
+.pricing-cards .service-card.featured:hover{
+  transform: scale(1.05) translateY(-6px);
+}
+
+
+
+/* ===== REMOVE BULLET POINTS FROM PRICING LISTS ===== */
+#pricing ul,
+#pricing-dubai ul{
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#pricing ul li,
+#pricing-dubai ul li{
+  list-style: none;
+}
+/* ===== STYLISH CHECK ICON ===== */
+#pricing ul li,
+#pricing-dubai ul li{
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #374151;
+}
+
+#pricing ul li::before,
+#pricing-dubai ul li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background: #00c2ff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== EQUAL HEIGHT PRICING CARDS ===== */
+.pricing-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.pricing-cards .service-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== PREMIUM HOVER EFFECT ===== */
+.pricing-cards .service-card{
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.pricing-cards .service-card:hover{
+  transform: translateY(-12px) scale(1.01);
+  box-shadow: 0 35px 70px rgba(0, 194, 255, 0.18);
+}
+
+@media(max-width:768px){
+  .pricing-cards .service-card:hover{
+    transform: none;
+  }
+}
+
+.map-box{
+  max-width:520px;
+  margin:0 auto 30px;
+  text-align:center;
+}
+
+.map-btn{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:10px 22px;
   background:#00c2ff;
   color:#fff;
-  font-size:12px;
+  border-radius:30px;
+  font-size:14px;
   font-weight:600;
-  padding:6px 40px;
-  transform:rotate(45deg);
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  text-decoration:none;
 }
 
+.map-btn:hover{
+  background:#009ed6;
+}
 
+@media(max-width:768px){
+  .map-box{
+    margin-bottom: 40px;
+  }
 
+  .map-btn{
+    width:100%;
+  }
+}
+
+@media(max-width:768px){
+  .logo{
+    font-size:18px;
+    white-space:nowrap;
+  }
+
+  .nav-links{
+    gap:14px;
+  }
+}
+
+@media(max-width:768px){
+  #hero{
+    height:auto;
+    padding:120px 0 80px;
+  }
+}
+
+@media(max-width:768px){
+  #hero h1{
+    font-size:26px;
+    line-height:1.3;
+  }
+
+  #hero p{
+    font-size:15px;
+    line-height:1.6;
+    padding:0 12px;
+  }
+
+  #hero .magnetic-btn{
+    width:90%;
+    margin:20px auto 0;
+  }
+}
+
+/* ===== MOBILE FOOTER FIX ===== */
+@media(max-width:768px){
+  footer{
+    padding:30px 16px;
+    text-align:center;
+  }
+
+  footer p,
+  footer div{
+    font-size:14px;
+    line-height:1.6;
+    word-break:break-word;
+  }
+}
+
+/* ===== PREMIUM MOBILE NAVBAR ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 16px 18px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    padding: 6px 10px;
+    border-radius: 30px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+  }
+}
