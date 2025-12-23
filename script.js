@@ -14,17 +14,6 @@ function selectService(serviceName) {
   });
 }
 
-document.getElementById("billingToggle")?.addEventListener("change", function(){
-  document.querySelectorAll(".price").forEach(price=>{
-    if(this.checked){
-      price.innerHTML = price.innerHTML + "<br><small>/ month</small>";
-    }else{
-      price.innerHTML = price.innerHTML.replace("<br><small>/ month</small>","");
-    }
-  });
-});
-
-
 /* Update subject based on service */
 serviceSelect.addEventListener("change", function () {
   if (this.value !== "") {
@@ -145,4 +134,33 @@ form.addEventListener("submit", async function (e) {
       }
     }
 
+    /* ===== GOOGLE REVIEW COUNTER ANIMATION ===== */
 
+function animateRating(id, target) {
+  const el = document.getElementById(id);
+  let current = 0;
+  const interval = setInterval(() => {
+    current += 0.1;
+    if (current >= target) {
+      el.innerText = target.toFixed(1);
+      clearInterval(interval);
+    } else {
+      el.innerText = current.toFixed(1);
+    }
+  }, 40);
+}
+
+function animateReviews(id, target) {
+  const el = document.getElementById(id);
+  let current = 0;
+  const interval = setInterval(() => {
+    current++;
+    el.innerText = current;
+    if (current >= target) clearInterval(interval);
+  }, 30);
+}
+
+window.addEventListener("load", () => {
+  animateRating("ratingValue", 5.0);   // ⭐ Rating
+  animateReviews("reviewCount", 25);   // 🔥 Change count here
+});
