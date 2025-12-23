@@ -165,3 +165,17 @@ window.addEventListener("load", () => {
   animateReviews("reviewCount", 25);   // 🔥 Change count here
 });
 
+/* ===== FAQ ACCORDION TOGGLE ===== */
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+
+    // close others
+    document.querySelectorAll(".faq-item").forEach(faq => {
+      if (faq !== item) faq.classList.remove("active");
+    });
+
+    // toggle current
+    item.classList.toggle("active");
+  });
+});
