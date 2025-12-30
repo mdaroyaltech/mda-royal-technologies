@@ -105,9 +105,17 @@ function selectService(serviceName) {
   const serviceDropdown = document.getElementById("service");
   const subjectField = document.getElementById("emailSubject");
 
-  if (serviceDropdown && subjectField) {
-    serviceDropdown.value = "Custom IT Solution";
-    subjectField.value = "Dubai Enquiry – " + serviceName;
+  if (serviceDropdown) {
+    for (let option of serviceDropdown.options) {
+      if (option.text.trim() === serviceName.trim()) {
+        option.selected = true;
+        break;
+      }
+    }
+  }
+
+  if (subjectField) {
+    subjectField.value = "Website Enquiry – " + serviceName;
   }
 
   const contactSection = document.getElementById("contact");
@@ -115,6 +123,7 @@ function selectService(serviceName) {
     contactSection.scrollIntoView({ behavior: "smooth" });
   }
 }
+
 
 
 /* ===============================
