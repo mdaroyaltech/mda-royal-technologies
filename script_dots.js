@@ -12,7 +12,7 @@ resize();
 window.addEventListener("resize", resize);
 
 /* 🔥 MORE DOTS HERE */
-const particleCount = window.innerWidth < 768 ? 120 : 260;
+const particleCount = window.innerWidth < 768 ? 70 : 160;
 
 const particles = [];
 const mouse = { x: null, y: null };
@@ -38,7 +38,7 @@ class Particle {
   draw(){
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(90,130,180,0.75)";
+    ctx.fillStyle = "rgba(90,130,180,0.45)";
     ctx.fill();
   }
 
@@ -77,7 +77,7 @@ function connectParticles(){
 
       if(distance < 140){
         ctx.beginPath();
-        ctx.strokeStyle = "rgba(120,150,180,0.18)";
+        ctx.strokeStyle = "rgba(120,150,180,0.10)";
         ctx.lineWidth = 0.7;
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
