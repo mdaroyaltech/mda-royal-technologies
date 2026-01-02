@@ -74,6 +74,8 @@ body{
   opacity:0.85;
 }
 
+
+
 /* MAGNETIC BUTTON */
 .magnetic-btn{
   margin-top:25px;
@@ -1020,4 +1022,115 @@ footer{background:var(--primary);color:#fff;text-align:center;padding:40px}
 /* Real options */
 .field select option{
   color:#111;
+}
+
+/* ===== CONTACT FORM ALIGN FIX ===== */
+#contact {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+#contact .contact-form {
+  margin: 40px auto;
+}
+
+/* ===== PRICING CARD ALIGN ===== */
+.pricing-cards {
+  align-items: stretch;
+}
+
+.pricing-cards .service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== SERVICES TOP GAP FIX ===== */
+#services {
+  padding-top: 50px;
+}
+
+/* ===== HERO TRUST STRIP ALIGN ===== */
+.trust-strip {
+  padding: 20px 10%;
+  text-align: center;
+}
+
+.trust-items {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #475569;
+}
+.trust-strip {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+#about {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+#contact {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* ===== FOOTER PERFECT CENTER ALIGN ===== */
+footer {
+  text-align: center;
+}
+
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+footer p {
+  margin-bottom: 10px;
+}
+/* ===== WHY CHOOSE US – FINAL CLEAN DESIGN ===== */
+
+.why-list{
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 18px 40px;
+  max-width: 720px;
+  margin: 30px auto 0;
+  padding: 0;
+}
+
+.why-list li{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #0a1d37;
+  line-height: 1.6;
+}
+
+/* Green check icon */
+.why-list li::before{
+  content: "✓";
+  width: 22px;
+  height: 22px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .why-list{
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
 }
